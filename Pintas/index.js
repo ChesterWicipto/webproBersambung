@@ -3,7 +3,7 @@ import About from '../About';
 import Daftar from '../Daftar';
 import Dashboard from '../Dashboard';
 import Masuk from '../Masuk';
-
+import Adduser from '../AddUser';
 
 const Routes = () =>
 {
@@ -20,8 +20,11 @@ const Routes = () =>
                 <Route exact path='/'>
                     <Dashboard/>
                 </Route>
-                <Route path='/About'>
+                <Route path='/about'>
                     <About/>
+                </Route>
+                <Route path='/adduser'>
+                    <Adduser/>
                 </Route>
 
             </Switch>

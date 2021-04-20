@@ -3,10 +3,15 @@ import Navbar from "../Navbar";
 const About = () =>
 {
     return(
-        <div>
+        <div className="border bg-primary">
+            <div className="container">
             <Navbar/>
-        <h3>About</h3>
+            <div className="container">
+            <h3>About</h3>
+            </div>
         </div>
+        </div>
+        
     )
 }
 

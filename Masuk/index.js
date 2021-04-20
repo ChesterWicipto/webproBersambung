@@ -18,17 +18,20 @@ const Masuk = ({title}) => {
         console.log('componentDidmount dijalankan')
     },[]);
     return(
-    <div>
-        <Navbar/>
-        <div  class="d-grid gap-1 col-4 mx-auto">
+    <div className="container">
+        <Navbar/> 
+        <div  className="container Container card p-4  row-cols-1 text-white bg-dark mb-3 shadow" >
         <h3>Login</h3>
-        <p> User Name </p>
+        <p>User Name </p>
         <input placeholder='Enter UserName' value={username} onChange={(e)=> setUsername(e.target.value)}/>
-        <p> Password </p>
+        <p>Password </p>
         <input placeholder='Enter Password' type="password" value={password} onChange={(p)=>setPassword(p.target.value)}/>
         <br/>
-        <button type="button" onClick={handleSubmit}>Submit</button> 
+        <br/>
+        <button type="button" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
         </div>
+       
+
         
     
     </div>

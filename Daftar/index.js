@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import Navbar from '../Navbar';
+import axios from 'axios';
 const Daftar = ({title}) => {
     const [fullname, setFullname]= useState('');
     const [username, setUsername]= useState('');
@@ -9,25 +10,24 @@ const Daftar = ({title}) => {
     // menyimpan data yang di input
     const handleSubmit = ()=>{
         const data = {
-            fullname: fullname,
-            username: username,
+            full_name: fullname,
+            user_name: username,
             email: email,
-            phonenumber: phonenumber,
-            address: address,
-                    }
-        console.log('Fullname:',fullname);
-        console.log('Username:',username);
-        console.log('Email:',email);
-        console.log('PhoneNumber:',phonenumber);
-        console.log('Address:',address);
-
+            phone_number: phonenumber,
+            address: address};
+            axios
+            .post(" http://localhost:3004/regis", data)
+            .then(() => alert(`${fullname} ${username} Berhasil Ditambahkan`))
+            .catch(() => {
+              alert("Tidak Bisa Terhubung ke json-server");
+              },[])
+              console.log(data);
     }
     return(
-        <div>
+        <div className="container">
             <Navbar/>
-    <div  class="d-grid gap-0.1 col-4 mx-auto">
-        
-        <h3>Login</h3>
+    <div className="container Container card p-4  row-cols-1 text-white bg-dark mb-3 shadow">
+        <h3>Register</h3>
         <p> FullName </p>
         <input placeholder='Enter FullName' value={fullname} onChange={(e)=> setFullname(e.target.value)}/>
         <p> User Name </p>
@@ -40,9 +40,10 @@ const Daftar = ({title}) => {
         <input placeholder='Enter Address' value={address} onChange={(e)=> setAddress(e.target.value)}/>
         <br/>
         <br/>
-        <button class="btn btn-primary" type="button" onClick={handleSubmit}>Register</button>
+        <button className="btn btn-primary" type="button" onClick={handleSubmit}>Register</button>
         </div>
         </div>
+        
     )
 
 }
